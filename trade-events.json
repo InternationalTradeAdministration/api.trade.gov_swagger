@@ -3,13 +3,13 @@
     "info": {
         "title": "TradeEventsAPI",
         "description": "The Trade Events API provides data on events for U.S. businesses interested in selling their products and services overseas. These events include industry conferences, webinars, lectures, and trade missions organized by ITA and other trade agencies.",
-        "version": "v2"
+        "version": "v1"
     },
     "host": "api.trade.gov",
     "schemes": [
         "https"
     ],
-    "basePath": "/trade_events",
+    "basePath": "/{version}/trade_events",
     "produces": [
         "application/json"
     ],
@@ -112,7 +112,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "An array of products",
+                        "description": "Successful Event Response",
                         "schema": {
                             "type": "array",
                             "items": {
@@ -161,11 +161,7 @@
                 },
                 "cost": {
                     "description": "Cost of the event.",
-                    "type": "string"
-                },
-                "cost_currency": {
-                    "description": "The currency of the cost value.",
-                    "type": "string"
+                    "type": "float"
                 },
                 "registration_link": {
                     "description": "URL for the event's registration page.",
@@ -179,60 +175,36 @@
                     "description": "Text describing the event.",
                     "type": "string"
                 },
-                "industries": {
-                    "description": "Industry categories assigned to the event.",
+                "source_industry": {
+                    "description": "The industry category assigned to the event by the source.",
                     "type": "string"
                 },
-                "ita_industries": {
-                    "description": "The ITA industries associated with the assigned industries.",
-                    "type": "string"
+                "industry": {
+                    "description": "Industry categories assigned to the event.",
+                    "type": "array"
                 },
                 "url": {
                     "description": "Link to the event's web page.",
                     "type": "string"
                 },
-                "venues": {
-                    "description": "Array of venue information.",
+                "click_url": {
+                    "description": "Link to the event's web page.",
                     "type": "string"
+                },
+                "venues": {
+                    "description": "Array of hashes for information about each venue including country, city, country_name, location, and state.",
+                    "type": "array"
                 },
                 "contacts": {
-                    "description": "Array of contact information.",
-                    "type": "string"
-                },
-                "first_name": {
-                    "description": "The event contact’s first name.",
-                    "type": "string"
-                },
-                "last_name": {
-                    "description": "The event contact’s last name.",
-                    "type": "string"
-                },
-                "post": {
-                    "description": "The event contact’s location.",
-                    "type": "string"
-                },
-                "person_title": {
-                    "description": "The event contact’s title.",
-                    "type": "string"
-                },
-                "phone": {
-                    "description": "The event contact’s phone number.",
-                    "type": "string"
-                },
-                "email": {
-                    "description": "The event contact’s email address.",
-                    "type": "string"
+                    "description": "Array of hashes of contact information including post, phone, last_name, person_title, first_name, and email.",
+                    "type": "array"
                 },
                 "source": {
                     "description": "Agency providing the event information.",
                     "type": "string"
                 },
-                "trade_regions": {
-                    "description": "The trade regions associated with the event.",
-                    "type": "string"
-                },
-                "world_regions": {
-                    "description": "The world regions associated with the event.",
+                "country": {
+                    "description": "The country associated with the event.",
                     "type": "string"
                 }
             }

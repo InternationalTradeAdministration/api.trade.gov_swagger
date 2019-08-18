@@ -1,23 +1,23 @@
 {
     "swagger": "2.0",
     "info": {
-        "title": "Business Service Providers API",
-        "description": "The Business Service Providers (BSP) API is a directory of U.S. and foreign-based businesses providing services that many small and medium sized exporters require to succeed in foreign markets Parameters.",
-        "version": "2.0.0"
+        "title": "BusinessServiceProvidersAPI",
+        "description": "The Business Service Providers (BSP) API is a directory of U.S. and foreign-based businesses providing services that many small and medium sized exporters require to succeed in foreign markets. Businesses can sign up to be a Service Provider on export.gov.",
+        "version": "v1"
     },
     "host": "api.trade.gov",
     "schemes": [
         "https"
     ],
-    "basePath": "/v2",
+    "basePath": "/{version}/business_service_providers",
     "produces": [
         "application/json"
     ],
     "paths": {
-        "/business_service_providers/search": {
+        "/search": {
             "get": {
                 "summary": "Business Service Providers API",
-                "description": "The Business Service Providers (BSP) API is a directory of U.S. and foreign-based businesses providing services that many small and medium sized exporters require to succeed in foreign markets Parameters.",
+                "description": "The Business Service Providers (BSP) API is a directory of U.S. and foreign-based businesses providing services that many small and medium sized exporters require to succeed in foreign markets. Businesses can sign up to be a Service Provider on export.gov.",
                 "parameters": [
                     {
                         "name": "keyword",
@@ -71,7 +71,10 @@
                     "200": {
                         "description": "History information for the given user",
                         "schema": {
-                            "$ref": "#/definitions/Provider"
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Provider"
+                            }
                         }
                     }
                 }

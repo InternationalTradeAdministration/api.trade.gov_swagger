@@ -2,14 +2,14 @@
     "swagger": "2.0",
     "info": {
         "title": "ConsolidatedScreeningListAPI",
-        "description": "The Consolidated Screening List API consolidates eleven export screening lists of the Departments of Commerce, State and the Treasury into a single data feed as an aid to industry in conducting electronic screens of potential parties to regulated transactions.",
-        "version": "v2"
+        "description": "The Consolidated Screening List API consolidates eleven export screening lists of the Departments of Commerce, State and the Treasury into a single data feed as an aid to industry in conducting electronic screens of potential parties to regulated transactions.In the event that a company, entity or person on the list appears to match a party potentially involved in an export transaction, additional due diligence should be conducted before proceeding. There may be a strict export prohibition, requirement for seeking a license application, evaluation of the end-use or user to ensure it does not result in an activity prohibited by any U.S. export regulations, or other restriction. For more information view the informational video from the National Customs Brokers. The API only contains active entities on the list. For historical research, please reference the sources directly.",
+        "version": "v1"
     },
     "host": "api.trade.gov",
     "schemes": [
         "https"
     ],
-    "basePath": "/consolidated_screening_list",
+    "basePath": "/{version}/consolidated_screening_list",
     "produces": [
         "application/json"
     ],
@@ -17,7 +17,7 @@
         "/search": {
             "get": {
                 "summary": "Consolidated Screening List API",
-                "description": "The Consolidated Screening List API consolidates eleven export screening lists of the Departments of Commerce, State and the Treasury into a single data feed as an aid to industry in conducting electronic screens of potential parties to regulated transactions.",
+                "description": "The Consolidated Screening List API consolidates eleven export screening lists of the Departments of Commerce, State and the Treasury into a single data feed as an aid to industry in conducting electronic screens of potential parties to regulated transactions.In the event that a company, entity or person on the list appears to match a party potentially involved in an export transaction, additional due diligence should be conducted before proceeding. There may be a strict export prohibition, requirement for seeking a license application, evaluation of the end-use or user to ensure it does not result in an activity prohibited by any U.S. export regulations, or other restriction. For more information view the informational video from the National Customs Brokers. The API only contains active entities on the list. For historical research, please reference the sources directly.",
                 "parameters": [
                     {
                         "name": "q",
@@ -160,7 +160,7 @@
             "properties": {
                 "addresses": {
                     "description": "Array of entity's complete addresses.",
-                    "type": "string"
+                    "type": "array"
                 },
                 "name": {
                     "description": "Entity's name.",
@@ -168,7 +168,7 @@
                 },
                 "alt_names": {
                     "description": "Alias names used by the entity.",
-                    "type": "string"
+                    "type": "array"
                 },
                 "source_list_url": {
                     "description": "Location of the original list.",
@@ -179,24 +179,24 @@
                     "type": "string"
                 },
                 "ids": {
-                    "description": "An array showing specific identification information of the entity.",
-                    "type": "string"
+                    "description": "An array showing specific identification information (in hashes) of the entity.",
+                    "type": "array"
                 },
                 "citizenships": {
                     "description": "Entity's citizenships.",
-                    "type": "string"
+                    "type": "array"
                 },
                 "dates_of_birth": {
                     "description": "Entity's dates of birth.",
-                    "type": "string"
+                    "type": "array"
                 },
                 "nationalities": {
                     "description": "Entity's nationalities.",
-                    "type": "string"
+                    "type": "array"
                 },
                 "places_of_birth": {
                     "description": "Entity's places of birth.",
-                    "type": "string"
+                    "type": "array"
                 },
                 "title": {
                     "description": "Entity's title.",

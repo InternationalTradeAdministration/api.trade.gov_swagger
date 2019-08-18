@@ -2,14 +2,14 @@
     "swagger": "2.0",
     "info": {
         "title": "FTATariffRatesAPI",
-        "description": "The FTA Tariff Rates API provides data about each country with whom the United States has a Free Trade Agreement (FTA). When the U.S. enters into an FTA with a foreign government, it negotiates lower tariff rates with that government for a wide variety of products. A tariff is a tax that a company must pay a foreign country when shipping a product to that country. Typically the FTA tariffs rates decline over several years.",
+        "description": "The FTA Tariff Rates API provides data about each country with whom the United States has a Free Trade Agreement (FTA). When the U.S. enters into an FTA with a foreign government, it negotiates lower tariff rates with that government for a wide variety of products. A tariff is a tax that a company must pay a foreign country when shipping a product to that country. Typically the FTA tariffs rates decline over several years. The API provides information on tariff rates for the following countries: Australia, Bahrain, Chile, Colombia, Costa Rica, Dominican Republic, El Salvador, Guatemala, Honduras, Morocco, Nicaragua, Oman, Panama, Peru, Singapore, and South Korea. Products are indicated by their HS-6 code. Because the North American Free Trade Agreement (NAFTA) tariff rates have declined to zero, Canada and Mexico data is not included. Similarly, the tariff rates for almost all products shipped to Israel and Jordon have declined to zero and are not included here.",
         "version": "v1"
     },
     "host": "api.trade.gov",
     "schemes": [
         "https"
     ],
-    "basePath": "/tariff_rates",
+    "basePath": "/{version}/tariff_rates",
     "produces": [
         "application/json"
     ],
@@ -17,7 +17,7 @@
         "/search": {
             "get": {
                 "summary": "FTA Tariff Rates API",
-                "description": "The FTA Tariff Rates API provides data about each country with whom the United States has a Free Trade Agreement (FTA). When the U.S. enters into an FTA with a foreign government, it negotiates lower tariff rates with that government for a wide variety of products. A tariff is a tax that a company must pay a foreign country when shipping a product to that country. Typically the FTA tariffs rates decline over several years.",
+                "description": "The FTA Tariff Rates API provides data about each country with whom the United States has a Free Trade Agreement (FTA). When the U.S. enters into an FTA with a foreign government, it negotiates lower tariff rates with that government for a wide variety of products. A tariff is a tax that a company must pay a foreign country when shipping a product to that country. Typically the FTA tariffs rates decline over several years. The API provides information on tariff rates for the following countries: Australia, Bahrain, Chile, Colombia, Costa Rica, Dominican Republic, El Salvador, Guatemala, Honduras, Morocco, Nicaragua, Oman, Panama, Peru, Singapore, and South Korea. Products are indicated by their HS-6 code. Because the North American Free Trade Agreement (NAFTA) tariff rates have declined to zero, Canada and Mexico data is not included. Similarly, the tariff rates for almost all products shipped to Israel and Jordon have declined to zero and are not included here.",
                 "parameters": [
                     {
                         "name": "q",
@@ -113,6 +113,46 @@
                     "description": "Product's Harmonized System (HS) code for the product according to the reporter's nomenclature.",
                     "type": "string"
                 },
+                "hs_prefix_1": {
+                    "description": "The first digit of the HS code.",
+                    "type": "string"
+                },
+                "hs_prefix_2": {
+                    "description": "The first two digits of the HS code.",
+                    "type": "string"
+                },
+                "hs_prefix_3": {
+                    "description": "The first three digits of the HS code.",
+                    "type": "string"
+                },
+                "hs_prefix_4": {
+                    "description": "The first four digits of the HS code.",
+                    "type": "string"
+                },
+                "hs_prefix_5": {
+                    "description": "The first five digits of the HS code.",
+                    "type": "string"
+                },
+                "hs_prefix_6": {
+                    "description": "The first six digits of the HS code.",
+                    "type": "string"
+                },
+                "hs_prefix_7": {
+                    "description": "The first seven digits of the HS code.",
+                    "type": "string"
+                },
+                "hs_prefix_8": {
+                    "description": "The first eight digits of the HS code.",
+                    "type": "string"
+                },
+                "hs_prefix_9": {
+                    "description": "The first nine digits of the HS code.",
+                    "type": "string"
+                },
+                "tariff_line_description": {
+                    "description": "A description of the subheading level (6-digit HS code) in the reporter's language.",
+                    "type": "string"
+                },
                 "subheading_description": {
                     "description": "English description at the subheading level (6-digit HS code).",
                     "type": "string"
@@ -123,7 +163,7 @@
                 },
                 "base_rate": {
                     "description": "The numeric tariff rate from which tariff reductions are calculated. Typically, this is the applied tariff rate at the time the FTA was negotiated.",
-                    "type": "string"
+                    "type": "float"
                 },
                 "base_rate_alt": {
                     "description": "The non-numeric (specific) tariff rate from which the tariff reductions are calculated. Typically, this is the applied tariff rate at the time the FTA was negotiated.",
@@ -131,6 +171,10 @@
                 },
                 "final_year": {
                     "description": "The year the tariff is eliminated under the FTA.",
+                    "type": "string"
+                },
+                "staging_basket": {
+                    "description": "The agreed tariff phase-out period for the product under the FTA.",
                     "type": "string"
                 },
                 "tariff_rate_quota": {
@@ -151,10 +195,6 @@
                 },
                 "reporter_name": {
                     "description": "Importing country's code.",
-                    "type": "string"
-                },
-                "staging_basket": {
-                    "description": "The agreed tariff phase-out period for the product under the FTA.",
                     "type": "string"
                 },
                 "partner_start_year": {
@@ -191,11 +231,11 @@
                 },
                 "annual_rates": {
                     "description": "Numeric year-by-year tariff rates under the FTA as the tariff is eliminated.",
-                    "type": "string"
+                    "type": "hash"
                 },
                 "annual_rates_alt": {
                     "description": "Non-numeric (specific) year-by-year tariff rates under the FTA.",
-                    "type": "string"
+                    "type": "hash"
                 }
             }
         }

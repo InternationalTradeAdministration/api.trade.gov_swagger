@@ -1,26 +1,26 @@
 {
     "swagger": "2.0",
     "info": {
-        "title": "Zip Code to USEAC API",
-        "description": "The Zip Code to USEAC API provides direct access to the U.S. Export Assistance Centers (USEACs) that have been assigned to all of the 40,000+ zip codes in the United States.",
-        "version": "2.0.0"
+        "title": "ZipCodeToUseacAPI",
+        "description": "The Zip Code to USEAC API provides direct access to the U.S. Export Assistance Centers (USEACs) that have been assigned to all of the 40,000+ zip codes in the United States. It’s not enough to do a proximity search for a zip code and a USEAC. Each center has specialists on hand for each particular region.",
+        "version": "v1"
     },
     "host": "api.trade.gov",
     "schemes": [
         "https"
     ],
-    "basePath": "/v2",
+    "basePath": "/{version}/ita_zipcode_to_post",
     "produces": [
         "application/json"
     ],
     "paths": {
-        "/ita_zipcode_to_post/search": {
+        "/search": {
             "get": {
                 "summary": "Zip Code to USEAC API",
-                "description": "The Zip Code to USEAC API provides direct access to the U.S. Export Assistance Centers (USEACs) that have been assigned to all of the 40,000+ zip codes in the United States.",
+                "description": "The Zip Code to USEAC API provides direct access to the U.S. Export Assistance Centers (USEACs) that have been assigned to all of the 40,000+ zip codes in the United States. It’s not enough to do a proximity search for a zip code and a USEAC. Each center has specialists on hand for each particular region.",
                 "parameters": [
                     {
-                        "name": "keyword",
+                        "name": "q",
                         "in": "query",
                         "description": "Returns zip code entries for a match within the post, office_name or zip_city fields.",
                         "required": false,
@@ -61,9 +61,12 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "History information for the given user",
+                        "description": "Successful Center Response",
                         "schema": {
-                            "$ref": "#/definitions/Center"
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Center"
+                            }
                         }
                     }
                 }
@@ -102,7 +105,7 @@
                     "description": "Name of the city corresponding to the office location."
                 },
                 "address": {
-                    "type": "string",
+                    "type": "array",
                     "description": "Street address of office."
                 },
                 "email": {
