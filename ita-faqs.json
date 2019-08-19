@@ -1,26 +1,26 @@
 {
     "swagger": "2.0",
     "info": {
-        "title": "FAQs on Exporting API",
+        "title": "FAQsOnExportingAPI",
         "description": "The Frequently Asked Questions (FAQs) API includes more than 200 commonly asked questions about exporting. The answers provided are from government experts that specialize in unique aspects of trade.",
-        "version": "2.0.0"
+        "version": "v1"
     },
     "host": "api.trade.gov",
     "schemes": [
         "https"
     ],
-    "basePath": "/v2",
+    "basePath": "/{version}/ita_faqs",
     "produces": [
         "application/json"
     ],
     "paths": {
-        "/ita_faqs/search": {
+        "/search": {
             "get": {
                 "summary": "FAQs on Exporting API",
                 "description": "The Frequently Asked Questions (FAQs) API includes more than 200 commonly asked questions about exporting. The answers provided are from government experts that specialize in unique aspects of trade.",
                 "parameters": [
                     {
-                        "name": "keyword",
+                        "name": "q",
                         "in": "query",
                         "description": "Searches for a match within the question and answer fields.",
                         "required": false,
@@ -109,7 +109,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "Successful Rate Response",
+                        "description": "Successful FAQ Response",
                         "schema": {
                             "type": "array",
                             "items": {
@@ -150,23 +150,23 @@
                 },
                 "industries": {
                     "description": "Industry categories assigned to the FAQ.",
-                    "type": "string"
+                    "type": "array"
                 },
                 "topics": {
                     "description": "Topic categories assigned to the FAQ.",
-                    "type": "string"
+                    "type": "array"
                 },
                 "countries": {
                     "description": "Countries relevent to the FAQ.",
-                    "type": "string"
+                    "type": "array"
                 },
                 "trade_regions": {
                     "description": "Trade regions relevent to the FAQ.",
-                    "type": "string"
+                    "type": "array"
                 },
                 "world_regions": {
                     "description": "World regions relevent to the FAQ.",
-                    "type": "string"
+                    "type": "array"
                 }
             }
         }

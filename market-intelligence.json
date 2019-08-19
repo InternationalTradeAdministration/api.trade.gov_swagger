@@ -1,26 +1,26 @@
 {
     "swagger": "2.0",
     "info": {
-        "title": "Market Intelligence API",
-        "description": "",
-        "version": "2.0.0"
+        "title": "MarketIntelligenceAPI",
+        "description": "The Market Intelligence API provides metadata for Country Commercial Guides and other market insight reports that are produced by ITA’s trade experts. ITA commercial officers that are stationed around the world, publish these authoritative reports in conjunction with Foreign Service officers from the State Department. The API only provides the metadata and links to the reports – not the reports themselves.",
+        "version": "v1"
     },
     "host": "api.trade.gov",
     "schemes": [
         "https"
     ],
-    "basePath": "/v2",
+    "basePath": "/{version}/market_intelligence",
     "produces": [
         "application/json"
     ],
     "paths": {
-        "/market_intelligence/search": {
+        "/search": {
             "get": {
                 "summary": "Market Intelligence API",
-                "description": "",
+                "description": "The Market Intelligence API provides metadata for Country Commercial Guides and other market insight reports that are produced by ITA’s trade experts. ITA commercial officers that are stationed around the world, publish these authoritative reports in conjunction with Foreign Service officers from the State Department. The API only provides the metadata and links to the reports – not the reports themselves.",
                 "parameters": [
                     {
-                        "name": "keyword",
+                        "name": "q",
                         "in": "query",
                         "description": "Searches for a match within the atom, references, section, summary, and title fields.  Note:  the atom field is searchable, but not returned in the JSON results.",
                         "required": false,
@@ -113,7 +113,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "An array of products",
+                        "description": "Successful MarketIntelligence Response",
                         "schema": {
                             "type": "array",
                             "items": {
@@ -153,11 +153,11 @@
                     "type": "string"
                 },
                 "url": {
-                    "description": "",
+                    "description": "The url to the article.",
                     "type": "string"
                 },
                 "references": {
-                    "description": "",
+                    "description": "Reference information for the article.",
                     "type": "string"
                 },
                 "url_name": {
@@ -166,23 +166,23 @@
                 },
                 "industries": {
                     "description": "The ITA industry terms associated with the article.",
-                    "type": "string"
+                    "type": "array"
                 },    
                 "topics": {
                     "description": "The ITA topic terms associated with the article.",
-                    "type": "string"
+                    "type": "array"
                 }, 
                 "countries": {
                     "description": "The countries relevant to the article.",
-                    "type": "string"
+                    "type": "array"
                 }, 
                 "trade_regions": {
                     "description": "The trade regions relevant to the article.",
-                    "type": "string"
+                    "type": "array"
                 },  
                 "world_regions": {
                     "description": "The world regions relevant to the article.",
-                    "type": "string"
+                    "type": "array"
                 }         
             }
         }
