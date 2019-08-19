@@ -2,7 +2,7 @@
     "swagger": "2.0",
     "info": {
         "title": "ITATaxonomiesAPI",
-        "description": "The ITA Taxonomies API gives developers direct access to the exporting, trade, and investment terms that ITA uses to tag the content and data in its other APIs. Currently, ITA has three taxonomies: Geographic Regions, Industries, and Topics. This API includes all terms in their proper hierarchy in the relevant taxonomy. ITA imports data for its other APIs from many sources. If the source data is already tagged, ITA does the following: Imports those tags (terms) along with the data; Maps the terms to ITA’s taxonomies; Publishes both the original terms and the ITA terms with the data in the API.",
+        "description": "The ITA Taxonomies API gives developers direct access to the exporting, trade, and investment terms that ITA uses to tag the content and data in its other APIs. Currently, ITA has four taxonomies: Industries, Trade Topics, Geographic Locations, and U.S. Government. This API includes all terms in their proper hierarchy in the relevant taxonomy. ITA imports data for its other APIs from many sources. If the source data is already tagged, ITA does the following: Imports those tags (terms) along with the data; Maps the terms to ITA’s taxonomies; Publishes both the original terms and the ITA terms with the data in the API.",
         "version": "v1"
     },
     "host": "api.trade.gov",
@@ -17,7 +17,7 @@
         "/search": {
             "get": {
                 "summary": "ITA Taxonomies API",
-                "description": "The ITA Taxonomies API gives developers direct access to the exporting, trade, and investment terms that ITA uses to tag the content and data in its other APIs. Currently, ITA has three taxonomies: Geographic Regions, Industries, and Topics. This API includes all terms in their proper hierarchy in the relevant taxonomy. ITA imports data for its other APIs from many sources. If the source data is already tagged, ITA does the following: Imports those tags (terms) along with the data; Maps the terms to ITA’s taxonomies; Publishes both the original terms and the ITA terms with the data in the API.",
+                "description": "The ITA Taxonomies API gives developers direct access to the exporting, trade, and investment terms that ITA uses to tag the content and data in its other APIs. Currently, ITA has four taxonomies: Industries, Trade Topics, Geographic Locations, and U.S. Government. This API includes all terms in their proper hierarchy in the relevant taxonomy. ITA imports data for its other APIs from many sources. If the source data is already tagged, ITA does the following: Imports those tags (terms) along with the data; Maps the terms to ITA’s taxonomies; Publishes both the original terms and the ITA terms with the data in the API.",
                 "parameters": [
                     {
                         "name": "q",
@@ -30,7 +30,7 @@
                     {
                         "name": "types",
                         "in": "query",
-                        "description": "Returns terms that fall under the given high-level taxonomy types. Enter multiple values separated by commas. The possible values are Industries, Topics, Countries, Trade Regions, and World Regions.",
+                        "description": "Returns terms that fall under the given high-level taxonomy types. Enter multiple values separated by commas. The possible values are Industries, Trade Topics, Geographic Locations, and U.S. Government",
                         "required": false,
                         "type": "string",
                         "format": "string"
