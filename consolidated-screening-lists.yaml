@@ -38,7 +38,7 @@ paths:
             * <b>DTC</b> - ITAR Debarred <br />
             <br />
             Department of Treasury - Office of Foreign Assets Control: <br />
-            * <b>13599</b> - locked Solely Pursuant to Executive Order 13599 <br />
+            * <b>13599</b> - Blocked Solely Pursuant to Executive Order 13599 <br />
             * <b>CAP</b> - Correspondent Account or Payable-Through Account Sanctions (CAPTA) <br />
             * <b>FSE</b> - Foreign Sanctions Evaders <br />
             * <b>PLC</b> - Palestinian Legislative Council List <br />
@@ -140,21 +140,33 @@ paths:
           schema:
             type: array
             items:
-              $ref: "#/definitions/List"
-      x-auth-type: "Application & Application User"
-      x-throttling-tier: Endpointme
+              $ref: "#/definitions/Entry"
 definitions:
-  List:
+  Entry:
     properties:
       addresses:
         description: "Array of entity's complete addresses."
         type: array
+        items:
+          properties:
+            address:
+              type: string
+            city:
+              type: string
+            state:
+              type: string
+            postal_code:
+              type: string
+            country:
+              type: string
       name:
         description: "Entity's name."
         type: string
       alt_names:
         description: Alias names used by the entity.
         type: array
+        items:
+          type: string
       source_list_url:
         description: Location of the original list.
         type: string
@@ -164,18 +176,28 @@ definitions:
       ids:
         description: An array showing specific identification information (in hashes) of the entity.
         type: array
+        items:
+          type: string
       citizenships:
         description: "Entity's citizenships."
         type: array
+        items:
+          type: string
       dates_of_birth:
         description: "Entity's dates of birth."
         type: array
+        items:
+          type: string
       nationalities:
         description: "Entity's nationalities."
         type: array
+        items:
+          type: string
       places_of_birth:
         description: "Entity's places of birth."
         type: array
+        items:
+          type: string
       title:
         description: "Entity's title."
         type: string
@@ -205,7 +227,9 @@ definitions:
         type: string
       programs:
         description: Agency programs related to the entity on the list.
-        type: string
+        type: array
+        items:
+          type: string
       source:
         description: The name of the source list where this entity is listed.
         type: string
