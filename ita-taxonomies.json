@@ -60,10 +60,6 @@
                         "format": "string"
                     }
                 ],
-                "tags": [
-                    "Trade",
-                    "ITA"
-                ],
                 "responses": {
                     "200": {
                         "description": "Successful Taxonomy Response",

@@ -108,15 +108,6 @@
                         "format": "string"
                     }
                 ],
-                "tags": [
-                    "Trade",
-                    "Exporting",
-                    "ITA",
-                    "International",
-                    "Leads",
-                    "Procurement Opportunities",
-                    "Contracting Opportunities"
-                ],
                 "responses": {
                     "200": {
                         "description": "Successful Lead Response",

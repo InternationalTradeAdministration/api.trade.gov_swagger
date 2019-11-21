@@ -132,15 +132,6 @@
                         "format": "string"
                     }
                 ],
-                "tags": [
-                    "Trade",
-                    "Exporting",
-                    "ITA",
-                    "International",
-                    "Screening Lists",
-                    "Compliance",
-                    "Denied Parties"
-                ],
                 "responses": {
                     "200": {
                         "description": "Successful List Response",

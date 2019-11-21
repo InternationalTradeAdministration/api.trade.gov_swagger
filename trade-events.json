@@ -100,16 +100,6 @@
                         "format": "string"
                     }
                 ],
-                "tags": [
-                    "Trade",
-                    "Exporting",
-                    "ITA",
-                    "International",
-                    "Events",
-                    "Webinars",
-                    "Seminars",
-                    "Training"
-                ],
                 "responses": {
                     "200": {
                         "description": "Successful Event Response",

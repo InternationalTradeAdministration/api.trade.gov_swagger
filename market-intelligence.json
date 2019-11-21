@@ -108,9 +108,6 @@
                         "format": "string"
                     }
                 ],
-                "tags": [
-                    "ITA"
-                ],
                 "responses": {
                     "200": {
                         "description": "Successful MarketIntelligence Response",

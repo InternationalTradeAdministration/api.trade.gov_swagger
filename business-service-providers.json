@@ -60,13 +60,6 @@
                         "format": "string"
                     }
                 ],
-                "tags": [
-                    "Trade",
-                    "Exporting",
-                    "ITA",
-                    "International",
-                    "Service Providers"
-                ],
                 "responses": {
                     "200": {
                         "description": "History information for the given user",

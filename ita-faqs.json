@@ -100,13 +100,6 @@
                         "format": "string"
                     }
                 ],
-                "tags": [
-                    "Trade",
-                    "Exporting",
-                    "ITA",
-                    "International",
-                    "FAQs"
-                ],
                 "responses": {
                     "200": {
                         "description": "Successful FAQ Response",
