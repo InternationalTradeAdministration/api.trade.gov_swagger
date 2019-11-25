@@ -1,0 +1,80 @@
+swagger: '2.0'
+info:
+  title: ITATaxonomiesAPI
+  description: 'The ITA Taxonomies API gives developers direct access to the exporting, trade, and investment terms that ITA uses to tag the content and data in its other APIs. Currently, ITA has four taxonomies: Industries, Trade Topics, Geographic Locations, and U.S. Government. This API includes all terms in their proper hierarchy in the relevant taxonomy. ITA imports data for its other APIs from many sources. If the source data is already tagged, ITA does the following: Imports those tags (terms) along with the data; Maps the terms to ITA’s taxonomies; Publishes both the original terms and the ITA terms with the data in the API.'
+  version: v1
+host: api.trade.gov
+schemes:
+  - https
+basePath: '/{version}/ita_taxonomies'
+produces:
+  - application/json
+paths:
+  /search:
+    get:
+      summary: 'ITA Taxonomies API'
+      description: 'The ITA Taxonomies API gives developers direct access to the exporting, trade, and investment terms that ITA uses to tag the content and data in its other APIs. Currently, ITA has four taxonomies: Industries, Trade Topics, Geographic Locations, and U.S. Government. This API includes all terms in their proper hierarchy in the relevant taxonomy. ITA imports data for its other APIs from many sources. If the source data is already tagged, ITA does the following: Imports those tags (terms) along with the data; Maps the terms to ITA’s taxonomies; Publishes both the original terms and the ITA terms with the data in the API.'
+      parameters:
+        -
+          name: q
+          in: query
+          description: 'Returns taxonomy terms for a match within label field.'
+          required: false
+          type: string
+          format: string
+        -
+          name: types
+          in: query
+          description: 'Returns terms that fall under the given high-level taxonomy types. Enter multiple values separated by commas. The possible values are Industries, Trade Topics, Geographic Locations, and U.S. Government'
+          required: false
+          type: array
+          items:
+            type: string
+            enum:
+              - Geographic Locations
+              - Industries
+              - Trade Topics
+              - U.S. Government
+        -
+          name: labels
+          in: query
+          description: 'Returns terms based on exact matching of the label field. Enter multiple values separated by commas.'
+          required: false
+          type: string
+          format: string
+        -
+          name: size
+          in: query
+          description: 'The size parameter allows you to configure the number of results to be returned up to a maximum of 100.'
+          required: false
+          type: string
+          format: string
+        -
+          name: offset
+          in: query
+          description: 'The offset parameter defines the offset from the first result you want to fetch. Unless specified the API returns 10 results at a time.'
+          required: false
+          type: string
+          format: string
+      responses:
+        '200':
+          description: 'Successful Taxonomy Response'
+          schema: {type: array, items: {$ref: '#/definitions/Taxonomy'}}
+definitions:
+  Taxonomy:
+    properties:
+      id:
+        type: string
+        description: 'The id assigned to the term.'
+      label:
+        type: string
+        description: 'The name of the given taxonomy term.'
+      type:
+        type: string
+        description: 'The high level taxonomy type under which the given term belongs.'
+      annotations:
+        type: hash
+        description: 'A hash containing key/value pairs of annotation properties. Each value contains an array of label strings.'
+      object_properties:
+        type: hash
+        description: 'A hash containing key/value pairs of object properties.  Each value contains an array of id/label hashes.'

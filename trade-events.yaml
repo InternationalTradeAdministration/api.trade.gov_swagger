@@ -1,0 +1,164 @@
+swagger: '2.0'
+info:
+  title: TradeEventsAPI
+  description: 'The Trade Events API provides data on events for U.S. businesses interested in selling their products and services overseas. These events include industry conferences, webinars, lectures, and trade missions organized by ITA and other trade agencies.'
+  version: v1
+host: api.trade.gov
+schemes:
+  - https
+basePath: '/{version}/trade_events'
+produces:
+  - application/json
+paths:
+  /search:
+    get:
+      summary: 'Trade Events API'
+      description: 'The Trade Events API provides data on events for U.S. businesses interested in selling their products and services overseas. These events include industry conferences, webinars, lectures, and trade missions organized by ITA and other trade agencies.'
+      parameters:
+        -
+          name: q
+          in: query
+          description: 'Searches for a match within the registration_title, description, event_name, industries, city, venues.city, venues.state, venues.country, contacts.first_name, contacts.last_name, and contacts.person_title fields.'
+          required: false
+          type: string
+          format: string
+        -
+          name: industries
+          in: query
+          description: 'Returns trade events for specific controlled industry terms. This method allows you to search for multiple industries (plural) separated by commas.'
+          required: false
+          type: string
+          format: string
+        -
+          name: countries
+          in: query
+          description: 'Returns trade events for a specific country based on ISO alpha-2 country codes. This method allows you to search for multiple countries (plural) separated by commas but will only return one country (singular) per event.'
+          required: false
+          type: string
+          format: string
+        -
+          name: trade_regions
+          in: query
+          description: 'Returns trade events for a specific Trade Region.  Enter multiple values by separating with a comma.'
+          required: false
+          type: string
+          format: string
+        -
+          name: world_regions
+          in: query
+          description: 'Returns trade events for a specific World Region.  Enter multiple values by separating with a comma.'
+          required: false
+          type: string
+          format: string
+        -
+          name: sources
+          in: query
+          description: >
+            'Searches only the events specified by the Source Abbreviation.' <br />
+            <br />
+            * <b>ITA</b> - International Trade Administration
+            * <b>SBA</b> - Small Business Administration
+            * <b>USTDA</b> - U.S. Trade and Development Agency
+          required: false
+          type: array
+          items:
+            type: string
+            enum:
+              - ITA
+              - SBA
+              - USTDA
+        -
+          name: start_date
+          in: query
+          description: 'Returns events based on their start date. Dates are filtered by comparing them against an inclusive range, which must be entered with the following format YYYY-mm-dd TO YYYY-mm-dd. Searching on a single date can be done by entering the same value for the start and end of the range.'
+          required: false
+          type: string
+          format: string
+        -
+          name: end_date
+          in: query
+          description: 'Returns events based on their end date. Dates are filtered by comparing them against an inclusive range, which must be entered with the following format YYYY-mm-dd TO YYYY-mm-dd. Searching on a single date can be done by entering the same value for the start and end of the range.'
+          required: false
+          type: string
+          format: string
+        -
+          name: size
+          in: query
+          description: 'The size parameter allows you to configure the number of results to be returned up to a maximum of 100.'
+          required: false
+          type: string
+          format: string
+        -
+          name: offset
+          in: query
+          description: 'The offset parameter defines the offset from the first result you want to fetch. Unless specified the API returns 10 results at a time.'
+          required: false
+          type: string
+          format: string
+      responses:
+        '200':
+          description: 'Successful Event Response'
+          schema: {type: array, items: {$ref: '#/definitions/Event'}}
+definitions:
+  Event:
+    properties:
+      id:
+        description: 'Unique identifier for event.'
+        type: string
+      event_name:
+        description: 'Name given for the event.'
+        type: string
+      event_type:
+        description: 'The type of the event.'
+        type: string
+      start_date:
+        description: 'Start date of the event.'
+        type: string
+      start_time:
+        description: 'The start time of the event.'
+        type: string
+      end_date:
+        description: 'The date the event will end.'
+        type: string
+      end_time:
+        description: 'The end time of the event.'
+        type: string
+      time_zone:
+        description: 'The time zone of the event’s location.'
+        type: string
+      cost:
+        description: 'Cost of the event.'
+        type: float
+      registration_link:
+        description: 'URL for the event''s registration page.'
+        type: string
+      registration_title:
+        description: 'Title of the registration URL.'
+        type: string
+      description:
+        description: 'Text describing the event.'
+        type: string
+      source_industry:
+        description: 'The industry category assigned to the event by the source.'
+        type: string
+      industry:
+        description: 'Industry categories assigned to the event.'
+        type: array
+      url:
+        description: 'Link to the event''s web page.'
+        type: string
+      click_url:
+        description: 'Link to the event''s web page.'
+        type: string
+      venues:
+        description: 'Array of hashes for information about each venue including country, city, country_name, location, and state.'
+        type: array
+      contacts:
+        description: 'Array of hashes of contact information including post, phone, last_name, person_title, first_name, and email.'
+        type: array
+      source:
+        description: 'Agency providing the event information.'
+        type: string
+      country:
+        description: 'The country associated with the event.'
+        type: string
