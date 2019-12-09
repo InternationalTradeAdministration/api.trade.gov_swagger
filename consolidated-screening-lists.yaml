@@ -1,7 +1,7 @@
 swagger: "2.0"
 info:
   title: ConsolidatedScreeningListAPI
-  description: "The Consolidated Screening List API consolidates eleven export screening lists of the Departments of Commerce, State and the Treasury into a single data feed as an aid to industry in conducting electronic screens of potential parties to regulated transactions.In the event that a company, entity or person on the list appears to match a party potentially involved in an export transaction, additional due diligence should be conducted before proceeding. There may be a strict export prohibition, requirement for seeking a license application, evaluation of the end-use or user to ensure it does not result in an activity prohibited by any U.S. export regulations, or other restriction. For more information view the informational video from the National Customs Brokers. The API only contains active entities on the list. For historical research, please reference the sources directly."
+  description: "The Consolidated Screening List API consolidates export screening lists of the Departments of Commerce, State and the Treasury into a single data feed as an aid to industry in conducting electronic screens of potential parties to regulated transactions.In the event that a company, entity or person on the list appears to match a party potentially involved in an export transaction, additional due diligence should be conducted before proceeding. There may be a strict export prohibition, requirement for seeking a license application, evaluation of the end-use or user to ensure it does not result in an activity prohibited by any U.S. export regulations, or other restriction. For more information view the informational video from the National Customs Brokers. The API only contains active entities on the list. For historical research, please reference the sources directly."
   version: v1
 host: api.trade.gov
 schemes:
@@ -13,11 +13,11 @@ paths:
   /search:
     get:
       summary: Consolidated Screening List API
-      description: "The Consolidated Screening List API consolidates eleven export screening lists of the Departments of Commerce, State and the Treasury into a single data feed as an aid to industry in conducting electronic screens of potential parties to regulated transactions.In the event that a company, entity or person on the list appears to match a party potentially involved in an export transaction, additional due diligence should be conducted before proceeding. There may be a strict export prohibition, requirement for seeking a license application, evaluation of the end-use or user to ensure it does not result in an activity prohibited by any U.S. export regulations, or other restriction. For more information view the informational video from the National Customs Brokers. The API only contains active entities on the list. For historical research, please reference the sources directly."
+      description: "The Consolidated Screening List API consolidates export screening lists of the Departments of Commerce, State and the Treasury into a single data feed as an aid to industry in conducting electronic screens of potential parties to regulated transactions.In the event that a company, entity or person on the list appears to match a party potentially involved in an export transaction, additional due diligence should be conducted before proceeding. There may be a strict export prohibition, requirement for seeking a license application, evaluation of the end-use or user to ensure it does not result in an activity prohibited by any U.S. export regulations, or other restriction. For more information view the informational video from the National Customs Brokers. The API only contains active entities on the list. For historical research, please reference the sources directly."
       parameters:
         - name: q
           in: query
-          description: "Searches for a match within the name, alt_names, remarks, and title fields from all eleven lists."
+          description: "Searches for a match within the name, alt_names, remarks, and title fields from all lists."
           required: false
           type: string
           format: string
@@ -38,11 +38,9 @@ paths:
             * <b>DTC</b> - ITAR Debarred <br />
             <br />
             Department of Treasury - Office of Foreign Assets Control: <br />
-            * <b>13599</b> - Blocked Solely Pursuant to Executive Order 13599 <br />
             * <b>CAP</b> - Correspondent Account or Payable-Through Account Sanctions (CAPTA) <br />
             * <b>FSE</b> - Foreign Sanctions Evaders <br />
             * <b>PLC</b> - Palestinian Legislative Council List <br />
-            * <b>561</b> - Part 561 List <br />
             * <b>SSI</b> - Sectoral Sanctions Identifications List <br />
             * <b>SDN</b> - Specially Designated Nationals <br />
           required: false
@@ -55,11 +53,9 @@ paths:
               - UVL
               - ISN
               - DTC
-              - "13599"
               - CAP
               - FSE
               - PLC
-              - "561"
               - SSI
               - SDN
         - name: countries
