@@ -78,7 +78,9 @@ paths:
           format: string
         - name: fuzzy_name
           in: query
-          description: Set fuzzy_name=true to utilize fuzzy name matching.  Fuzzy name matching enables users to query a name and get usable results without knowing the exact spelling of an entry.  The fuzzy_name parameter only works in tandem with name.
+          description: >
+            Set fuzzy_name=true to utilize fuzzy name matching.  Fuzzy name matching enables users to query a name and get usable results without knowing the exact spelling of an entry.  The fuzzy_name parameter only works in tandem with name. <br />
+            Fuzzy search filters out the following common words: co, company, corp, corporation, inc, incorporated, limited, ltd, mrs, ms, mr, organization, sa, sas, llc, university, and univ.  For example, 'Water Corporation' returns the same results as 'Water' because 'Corporation' is one of the common words.
           required: false
           type: string
           format: string
