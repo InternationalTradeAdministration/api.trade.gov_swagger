@@ -29,6 +29,7 @@ paths:
             Department of Commerce – Bureau of Industry and Security (BIS): <br />
             * <b>DPL</b> - Denied Persons List <br />
             * <b>EL</b> - Entity List <br />
+            * <b>MEU</b> - Military End User<br />
             * <b>UVL</b> - Unverified List <br />
             <br />
             Department of State – Bureau of International Security and Non-Proliferation: <br />
@@ -40,6 +41,7 @@ paths:
             Department of Treasury - Office of Foreign Assets Control: <br />
             * <b>CAP</b> - Correspondent Account or Payable-Through Account Sanctions (CAPTA) <br />
             * <b>FSE</b> - Foreign Sanctions Evaders <br />
+            * <b>MBS</b> - Non-SDN Menu-Based Sanctions List (NS-MBS List) <br />
             * <b>PLC</b> - Palestinian Legislative Council List <br />
             * <b>SSI</b> - Sectoral Sanctions Identifications List <br />
             * <b>SDN</b> - Specially Designated Nationals <br />
@@ -50,11 +52,13 @@ paths:
             enum:
               - DPL
               - EL
+              - MEU
               - UVL
               - ISN
               - DTC
               - CAP
               - FSE
+              - MBS
               - PLC
               - SSI
               - SDN
