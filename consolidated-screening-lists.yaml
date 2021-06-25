@@ -40,7 +40,7 @@ paths:
             <br />
             Department of Treasury - Office of Foreign Assets Control: <br />
             * <b>CAP</b> - Correspondent Account or Payable-Through Account Sanctions (CAPTA) <br />
-            * <b>CCMC</b> - Non-SDN Communist Military Companies Sanctions List <br />
+            * <b>CMIC</b> - Non-SDN Chinese Military-Industrial Complex Companies List - Treasury Department <br />
             * <b>FSE</b> - Foreign Sanctions Evaders <br />
             * <b>MBS</b> - Non-SDN Menu-Based Sanctions List (NS-MBS List) <br />
             * <b>PLC</b> - Palestinian Legislative Council List <br />
@@ -58,7 +58,7 @@ paths:
               - ISN
               - DTC
               - CAP
-              - CCMC
+              - CMIC
               - FSE
               - MBS
               - PLC
